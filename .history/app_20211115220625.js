@@ -61,9 +61,8 @@
         isRepeat: false,
 
         songVolume:0,
-        config: {},
 
-        config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
+        // config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
 
         songs: [
                 {
@@ -119,10 +118,10 @@
                 }
             ],
             
-            setConfig: function(key, value) {
-                this.config[key] = value;
-                localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
-            },
+            // setConfig: function(key, value) {
+            //     this.config[key] = value;
+            //     // localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+            // },
             render: function(){
                 const htmls = this.songs.map((song, index) => {
                     return `
@@ -332,6 +331,7 @@
                 volumeRange.value  = this.songVolume;
                 const volumeColor = 'linear-gradient(90deg, rgb(204, 89, 44)' +volumeRange.value+'%, rgb(214, 214, 214) '+volumeRange.value+'%)';
                 volumeRange.style.background = volumeColor;
+                app.setConfig("colorVolume", app.volumeColor);
 
             },
 

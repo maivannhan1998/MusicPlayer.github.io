@@ -61,9 +61,8 @@
         isRepeat: false,
 
         songVolume:0,
-        config: {},
 
-        config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
+        // config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
 
         songs: [
                 {
@@ -119,10 +118,10 @@
                 }
             ],
             
-            setConfig: function(key, value) {
-                this.config[key] = value;
-                localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
-            },
+            // setConfig: function(key, value) {
+            //     this.config[key] = value;
+            //     // localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+            // },
             render: function(){
                 const htmls = this.songs.map((song, index) => {
                     return `
@@ -277,14 +276,14 @@
                         app.isRandom = true;
                         randomBtn.classList.add('active')
                         }  
-                    app.setConfig('isRandom', app.isRandom); 
+                    // app.setConfig('isRandom', app.isRandom); 
                 },
 
                 //Single-parallel repeat processing
                 repeatBtn.onclick = function() {
                     app.isRepeat = !app.isRepeat
                     repeatBtn.classList.toggle('active', app.isRepeat);
-                    app.setConfig('isRepeat', app.isRepeat);
+                    // app.setConfig('isRepeat', app.isRepeat);
                 }
                 
                 // handle when end 1 song ( repeat song / auto next song)
@@ -332,6 +331,7 @@
                 volumeRange.value  = this.songVolume;
                 const volumeColor = 'linear-gradient(90deg, rgb(204, 89, 44)' +volumeRange.value+'%, rgb(214, 214, 214) '+volumeRange.value+'%)';
                 volumeRange.style.background = volumeColor;
+                app.setConfig("colorVolume", app.volumeColor);
 
             },
 
@@ -352,14 +352,14 @@
                 this.volumeDisplayBackground();
             },
 
-            loadConfig: function() {
-                this.isRandom = this.config.isRandom;
-                this.isRepeat = this.config.isRepeat;
-                this.songVolume = this.config.volume;
+            // loadConfig: function() {
+            //     this.isRandom = this.config.isRandom;
+            //     this.isRepeat = this.config.isRepeat;
+            //     this.songVolume = this.config.volume;
 
-                randomBtn.classList.toggle('active',this.isRandom);
-                repeatBtn.classList.toggle('active',this.isRepeat);
-            },
+            //     randomBtn.classList.toggle('active',this.isRandom);
+            //     repeatBtn.classList.toggle('active',this.isRepeat);
+            // },
             
             loadCurrentSong: function() {
                 heading.innerText = this.currentSong.name;

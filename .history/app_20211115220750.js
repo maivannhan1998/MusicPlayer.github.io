@@ -61,9 +61,8 @@
         isRepeat: false,
 
         songVolume:0,
-        config: {},
 
-        config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
+        // config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
 
         songs: [
                 {

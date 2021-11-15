@@ -63,7 +63,7 @@
         songVolume:0,
         config: {},
 
-        config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
+        // config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
 
         songs: [
                 {
@@ -121,7 +121,7 @@
             
             setConfig: function(key, value) {
                 this.config[key] = value;
-                localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+                // localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
             },
             render: function(){
                 const htmls = this.songs.map((song, index) => {
