@@ -349,7 +349,7 @@
                     volumeButton.innerHTML='<i class="fas fa-volume-mute"></i>'
                 } 
             }     
-                this.volumeDisplayBackground();
+                // this.volumeDisplayBackground();
             },
 
             loadCurrentSong: function() {

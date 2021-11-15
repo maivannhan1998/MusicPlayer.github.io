@@ -352,19 +352,21 @@
                 this.volumeDisplayBackground();
             },
 
-            loadCurrentSong: function() {
-                heading.textContent = this.currentSong.name;
-                cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
-                audio.src = this.currentSong.path;
-            },
-
             loadConfig: function() {
                 this.isRandom = this.config.isRandom;
                 this.isRepeat = this.config.isRepeat;
                 this.songVolume = this.config.volume;
 
+                randomBtn.classList.toggle('active',this.isRandom);
+                repeatBtn.classList.toggle('active',this.isRepeat);
             },
-
+            
+            loadCurrentSong: function() {
+                heading.innerText = this.currentSong.name;
+                cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
+                audio.src = this.currentSong.path;
+            },
+            
             // handle next Song
             nextSong: function() {
                 this.currentIndex++;
@@ -424,9 +426,6 @@
                 
                 // render playlist
                 this.render();
-
-                randomBtn.classList.toggle("active", this.isRandom);
-                repeatBtn.classList.toggle("active", this.isRepeat);
                 
                 this.volumeButtonHandle();
             }
