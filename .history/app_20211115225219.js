@@ -234,7 +234,12 @@
                 
                 // handle rewind song
                 progress.oninput = function(e) {
-                    const seekTime  = (audio.duration / 100) * e.target.value;
+                    audio.pause();
+                    setTimeout(() => {
+                      audio.play();
+                    }, 500);
+                    //Lấy ra thời gian sau khi click tua
+                    const seekTime = e.target.value * (audio.duration / 100);
                     audio.currentTime = seekTime;
                 },
 

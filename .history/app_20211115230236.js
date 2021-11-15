@@ -234,7 +234,7 @@
                 
                 // handle rewind song
                 progress.oninput = function(e) {
-                    const seekTime  = (audio.duration / 100) * e.target.value;
+                    const seekTime  = e.target.value * audio.duration / 100;
                     audio.currentTime = seekTime;
                 },
 
@@ -356,6 +356,7 @@
                 heading.textContent = this.currentSong.name;
                 cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
                 audio.src = this.currentSong.path;
+                console.log(heading, cdThumb, audio);
             },
 
             loadConfig: function() {

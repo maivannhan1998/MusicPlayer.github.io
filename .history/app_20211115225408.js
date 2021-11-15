@@ -234,7 +234,7 @@
                 
                 // handle rewind song
                 progress.oninput = function(e) {
-                    const seekTime  = (audio.duration / 100) * e.target.value;
+                    const seekTime  = e.target.value * audio.duration / 100;
                     audio.currentTime = seekTime;
                 },
 
