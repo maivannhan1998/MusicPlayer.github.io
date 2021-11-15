@@ -63,7 +63,7 @@
         songVolume:0,
         config: {},
 
-        config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
+        // config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},    
 
         songs: [
                 {
@@ -121,7 +121,7 @@
             
             setConfig: function(key, value) {
                 this.config[key] = value;
-                localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+                // localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
             },
             render: function(){
                 const htmls = this.songs.map((song, index) => {
@@ -161,6 +161,7 @@
                 iterations: Infinity
                 });
                 cdAnimate.pause()
+                // heading.start();
 
                 // handle zoom in / zoom out app
                 document.onscroll = function () {
@@ -357,16 +358,12 @@
                 heading.textContent = this.currentSong.name;
                 cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
                 audio.src = this.currentSong.path;
-                this.setConfig("currentIndex",this.currentIndex);
             },
-
-            
 
             loadConfig: function() {
                 this.isRandom = this.config.isRandom;
                 this.isRepeat = this.config.isRepeat;
                 this.songVolume = this.config.volume;
-                this.currentIndex = this.config.currentIndex;
 
             },
 

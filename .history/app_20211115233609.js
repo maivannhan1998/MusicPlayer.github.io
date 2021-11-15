@@ -161,6 +161,7 @@
                 iterations: Infinity
                 });
                 cdAnimate.pause()
+                // heading.start();
 
                 // handle zoom in / zoom out app
                 document.onscroll = function () {

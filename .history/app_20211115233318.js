@@ -161,6 +161,7 @@
                 iterations: Infinity
                 });
                 cdAnimate.pause()
+                // heading.start();
 
                 // handle zoom in / zoom out app
                 document.onscroll = function () {
@@ -360,13 +361,10 @@
                 this.setConfig("currentIndex",this.currentIndex);
             },
 
-            
-
             loadConfig: function() {
                 this.isRandom = this.config.isRandom;
                 this.isRepeat = this.config.isRepeat;
                 this.songVolume = this.config.volume;
-                this.currentIndex = this.config.currentIndex;
 
             },
 

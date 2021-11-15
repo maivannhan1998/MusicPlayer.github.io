@@ -161,6 +161,7 @@
                 iterations: Infinity
                 });
                 cdAnimate.pause()
+                // heading.start();
 
                 // handle zoom in / zoom out app
                 document.onscroll = function () {
@@ -357,16 +358,12 @@
                 heading.textContent = this.currentSong.name;
                 cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
                 audio.src = this.currentSong.path;
-                this.setConfig("currentIndex",this.currentIndex);
             },
-
-            
 
             loadConfig: function() {
                 this.isRandom = this.config.isRandom;
                 this.isRepeat = this.config.isRepeat;
                 this.songVolume = this.config.volume;
-                this.currentIndex = this.config.currentIndex;
 
             },
 
