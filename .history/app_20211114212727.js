@@ -355,6 +355,7 @@
                 this.isRandom = this.config.isRandom;
                 this.isRepeat = this.config.isRepeat;
                 this.songVolume = this.config.volume;
+                this.currentIndex = this.config.currentIndex;
 
                 randomBtn.classList.toggle('active',this.isRandom);
                 repeatBtn.classList.toggle('active',this.isRepeat);
@@ -364,9 +365,9 @@
                 heading.innerText = this.currentSong.name;
                 cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
                 audio.src = this.currentSong.path;
-                console.log([this.loadCurrentSong])
+                this.setConfig("currentIndex",this.currentIndex);
             },
-            
+
             // handle next Song
             nextSong: function() {
                 this.currentIndex++;

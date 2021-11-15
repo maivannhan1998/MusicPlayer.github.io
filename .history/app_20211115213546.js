@@ -364,7 +364,6 @@
                 heading.innerText = this.currentSong.name;
                 cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
                 audio.src = this.currentSong.path;
-                console.log([this.loadCurrentSong])
             },
             
             // handle next Song
